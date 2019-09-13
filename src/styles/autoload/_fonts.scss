@@ -1,0 +1,9 @@
+/* stylelint-disable */
+@import "../_mixins/_font-face";
+
+@include font-face("overpass", "../../fonts/Overpass/Overpass-SemiBold", bold)
+@include font-face("SourceSansPro", "../../fonts/SourceSansPro/SourceSansPro-Regular", regular)
+@include font-face("SourceSansPro-bold", "../../fonts/SourceSansPro/SourceSansPro-Bold", bold)
+
+
+

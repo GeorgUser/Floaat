@@ -1,0 +1,16 @@
+/* stylelint-disable */
+.page__container {
+  @include make-container();
+  @include make-container-max-widths();
+}
+
+.page__row {
+  @include make-row();
+}
+
+.title {
+  font-weight: 600;
+  font-size: 42px;
+  text-align: center;
+  margin: 0 auto;
+}

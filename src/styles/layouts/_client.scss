@@ -1,0 +1,79 @@
+.clients {
+  background-color: $bg-clients;
+  .header {
+    position: relative;
+    &__menu--black {
+      a {
+        color: $black;
+      }
+    }
+    &__menu__icon--bg {
+      border-radius: 50%;
+      background-color: $white;
+    }
+  }
+  &__text {
+    &__col {
+      @include make-col(3);
+    }
+    h2 {
+      width: 194px;
+      height: 80px;
+      font-family: $arch-black;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 40px;
+      line-height: 40px;
+      color: $color-clients-title;
+    }
+    .desc {
+      font-family: Archivo;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 26px;
+      color: $color-clients;
+      mix-blend-mode: normal;
+      opacity: 0.5;
+    }
+    .view {
+      color: $red;
+      font-family: $arch-black;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 12px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+  }
+  &__gallery {
+    &__col {
+      @include make-col(9);
+    }
+    display: flex;
+    justify-content: center;
+    &__column {
+      display: flex;
+      flex-direction: column;
+      .table {
+        margin: 25px 15px;
+        .img {
+          border-radius: 5px;
+        }
+        p {
+          margin-top: 15px;
+          font-family: $arch;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 16px;
+          line-height: 17px;
+          color: $color-name;
+        }
+      }
+      &:nth-child(2n) {
+        margin-top: 65px;
+      }
+    }
+  }
+
+}

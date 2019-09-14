@@ -1,43 +1,42 @@
-$(document).ready(function () {
+(function () {
+    const images = document.images;
+    const preloader = document.getElementById("page-preloader");
+    const percent_display = document.getElementById("percent_display");
+    const image_display = document.getElementById("image_display");
+    let images_total_count = images.length;
+    let images_loaded_count = 0;
     let counter = 0;
-
-    // Start the changing images
-    setInterval(function () {
-        if (counter === 9) {
-            counter = 0;
-        }
-
-        changeImage(counter);
-        counter++;
-    }, 500);
-
-    // Set the percentage off
-    loading();
-});
-
-function changeImage(counter) {
-    const images = [
-        '<i class="fa fa-fighter-jet"></i>',
-        '<i class="fa fa-gamepad"></i>',
-        '<i class="fa fa-headphones"></i>',
-        '<i class="fa fa-cubes"></i>',
-        '<i class="fa fa-paw"></i>',
-        '<i class="fa fa-rocket"></i>',
-        '<i class="fa fa-ticket"></i>',
-        '<i class="fa fa-pie-chart"></i>',
-        '<i class="fa fa-codepen"></i>'
+    const imgTag = [
+        "<img src='./images/star.png' alt='star'>",
+        "<img src='./images/camera.png' alt='star'>",
+        "<img src='./images/headphone.png' alt='star'>"
     ];
 
-    $(".loader .image").html("" + images[counter] + "");
-}
+    const imgSetInt = setInterval(() =>{
+        if (counter === 3) counter = 0;
+        image_display.innerHTML = imgTag[counter];
+        counter++;
+    }, 400);
 
-function loading() {
-    let num = 0;
-
-    for (let i = 0; i <= 100; i++) {
-        setTimeout(function () {
-            $('.loader span').html(num);
-            num++;
-        }, i * 40);
+    for (let i = 0; i < images_total_count; i++) {
+        image_clone = new Image();
+        image_clone.onload = image_loaded;
+        image_clone.onerror = image_loaded;
+        image_clone.src = images[i].src;
     }
-}
+
+    function image_loaded() {
+        images_loaded_count++;
+
+        percent_display.innerHTML = (((100 / images_total_count) * images_loaded_count) << 0);
+
+        if (images_loaded_count >= images_total_count) {
+            setTimeout(() => {
+                if (!preloader.classList.contains("done")) {
+                    preloader.classList.add("done");
+                    clearInterval(imgSetInt);
+                }
+            }, 1200)
+        }
+    }
+})();

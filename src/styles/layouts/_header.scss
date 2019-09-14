@@ -1,0 +1,59 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 15;
+  width: 100%;
+  padding: 30px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  a {
+    color: $white;
+    text-decoration: none;
+  }
+  &__logo {
+    a {
+
+      color: $red;
+    }
+  }
+  &__menu {
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    &--white {
+      a {
+        color: $white;
+      }
+    }
+    &__icon {
+      margin-left: 25px;
+      width: 30px;
+      height: 30px;
+      &--bg {
+        border-radius: 50%;
+        background-color: $white;
+      }
+      .line {
+        position: relative;
+        height: 9px;
+        &:before, &:after {
+          content: '';
+          position: absolute;
+          left: 7px;
+          top: 7px;
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background-color: $red;
+        }
+        &:after {
+          left: auto;
+          right: 8px;
+        }
+      }
+    }
+  }
+}
+

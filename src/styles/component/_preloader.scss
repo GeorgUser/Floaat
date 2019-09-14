@@ -1,0 +1,48 @@
+.loader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  background: radial-gradient(48.18% 24.84% at 50% 50%, $purple 0%, #170119 100%);
+  transition: 1s all;
+  opacity: 1;
+  visibility: visible;
+  .preloader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    .image {
+      width: 100%;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transform-origin: bottom center;
+      opacity: 1;
+      text-align: center;
+    }
+    span {
+      font-family: $arch-black;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 370px;
+      line-height: 403px; /* identical to box height */
+      text-align: center;
+      text-transform: uppercase;
+      color: rgba(100, 60, 90, 0.2);
+    }
+    p {
+      color: $gold;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+  &.done {
+    opacity: 0;
+    visibility: hidden;
+    top: -100vh;
+  }
+}

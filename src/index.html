@@ -9,42 +9,136 @@
     <meta property="og:image" content="path/to/image.jpg">
     <link rel="icon" href="images/mainicon.jpg">
     <link rel="apple-touch-icon" sizes="180x180" href="#">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap&subset=cyrillic" rel="stylesheet">
     <meta name="theme-color" content="#000">
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Archivo:400,700&display=swap&subset=latin-ext"
+          rel="stylesheet">
 </head>
 <body>
 
-<div class="loader">
-    <div class="image">
-        <i class="fa fa-codepen"></i>
+<div id="page-preloader" class="loader">
+    <div class="preloader">
+        <div id="image_display" class="image"><img src='./images/star.png' alt='star'></div>
+        <span id="percent_display">00</span>
+        <p>loading...</p>
     </div>
-    <span></span>
 </div>
 
-<header id="header" class="header">
-    <div class="page__container">
-        <div class="logo__col">
-            <div class="header__logo">
+<div class="cursor cursor--small"></div>
 
+
+<section id="hero_block" class="hero_block">
+    <div class="page__container">
+        <div id="header" class="header">
+            <div class="header__logo">
+                <a href="#" class="white hover-js"><h1>floaat</h1></a>
+            </div>
+            <nav class="header__menu">
+                <a class="red hover-js" href="#">contact us</a>
+                <div class="header__menu__icon red hover-js">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </nav>
+        </div>
+        <div class="hero_block__title" id="inner">
+            <p>practice by sze</p>
+            <h1>creative</h1>
+            <img src="./images/love.png" alt="love">
+        </div>
+        <ul class="bg-parallax">
+            <li class="bg-parallax__item item1"><img src="images/bg-item1.png" alt=""></li>
+            <li class="bg-parallax__item item2"><img src="images/bg-item2.png" alt=""></li>
+            <li class="bg-parallax__item item3"><img src="images/bg-item3.png" alt=""></li>
+            <li class="bg-parallax__item item4"><img src="images/bg-item4.png" alt=""></li>
+            <li class="bg-parallax__item item5"><img src="images/bg-item5.png" alt=""></li>
+            <li class="bg-parallax__item item6"><img src="images/bg-item6.png" alt=""></li>
+            <li class="bg-parallax__item item7"><img src="images/headphone.png" alt=""></li>
+            <li class="bg-parallax__item item8"><img src="images/camera.png" alt=""></li>
+            <li class="bg-parallax__item item9"><img src="images/basica.png" alt=""></li>
+        </ul>
+    </div>
+</section>
+
+<section id="clients" class="clients">
+    <div class="page__container">
+        <div class="header">
+            <div class="header__logo">
+                <a href="#" class="white hover-js"><h1>floaat</h1></a>
+            </div>
+            <nav class="header__menu header__menu--black">
+                <a class="red hover-js" href="#">contact us</a>
+                <div class="header__menu__icon header__menu__icon--bg red hover-js">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </nav>
+        </div>
+        <div class="page__row">
+            <div class="clients__text__col">
+                <div class="clients__text">
+                    <h2>150+ clients</h2>
+                    <p class="desc">We work with some of the biggest gaming entertainers & world-renowned organisations
+                        .</p>
+                    <p class="view hover-js white">view all</p>
+                </div>
+            </div>
+            <div class="clients__gallery__col">
+                <div class="clients__gallery">
+                    <div class="clients__gallery__column">
+                        <div
+                                class="table"><img class="img hover-js white" src="./images/client1.jpg" alt="people">
+                            <p>Lara Cliford</p></div>
+                        <div
+                                class="table"><img class="img hover-js white" src="./images/client1.jpg" alt="people">
+                            <p>Lara Cliford</p></div>
+                        <div
+                                class="table"><img class="img hover-js white" src="./images/client1.jpg" alt="people">
+                            <p>Lara Cliford</p></div>
+                    </div>
+                    <div class="clients__gallery__column">
+                        <div
+                                class="table"><img class="img hover-js white" src="./images/client1.jpg" alt="people">
+                            <p>Lara Cliford</p></div>
+                        <div
+                                class="table"><img class="img hover-js white" src="./images/client1.jpg" alt="people">
+                            <p>Lara Cliford</p></div>
+                        <div
+                                class="table"><img class="img hover-js white" src="./images/client1.jpg" alt="people">
+                            <p>Lara Cliford</p></div>
+                    </div>
+                    <div class="clients__gallery__column">
+                        <div
+                                class="table"><img class="img hover-js white" src="./images/client1.jpg" alt="people">
+                            <p>Lara Cliford</p></div>
+                        <div
+                                class="table"><img class="img hover-js white" src="./images/client1.jpg" alt="people">
+                            <p>Lara Cliford</p></div>
+                        <div
+                                class="table"><img class="img hover-js white" src="./images/client1.jpg" alt="people">
+                            <p>Lara Cliford</p></div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="menu__col">
-            <nav>
-                <ul class="header__menu default_font">
-                    <li><a href="">About me</a></li>
-                    <li><a href="">Relationships</a></li>
-                    <li><a href="">Requirements</a></li>
-                    <li><a href="">Users</a></li>
-                    <li><a href="">Sign Up</a></li>
-                </ul>
+    </div>
+</section>
+
+<section class="we-do">
+    <div class="page__container">
+        <div class="header">
+            <div class="header__logo">
+                <a href="#" class="white hover-js"><h1>floaat</h1></a>
+            </div>
+            <nav class="header__menu header__menu--black">
+                <a class="red hover-js" href="#">contact us</a>
+                <div class="header__menu__icon header__menu__icon--bg red hover-js">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
             </nav>
         </div>
     </div>
-</header>
-<section id="hero_block" class="hero_block">
-    <div class="page__container">
 
-    </div>
 </section>
 
 
@@ -54,5 +148,6 @@
         </div>
     </div>
 </footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </body>
 </html>

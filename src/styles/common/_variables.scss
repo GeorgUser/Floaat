@@ -1,16 +1,24 @@
 /* stylelint-disable */
 // Fonts Data
-$default-font: "SourceSansPro", sans-serif;
+$arch-black: 'Archivo Black', sans-serif;
+$arch: 'Archivo', sans-serif;
 
 // Customization Bootstrap vars from "app/libs/bootstrap/scss/_variables.scss"
 $grid-gutter-width: 30px;
 $grid-columns: 12;
-$grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px);
-$container-max-widths: (sm: 540px, md: 720px, lg: 960px, xl: 1140px);
-
+$grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px, xxl: 1440px);
+$container-max-widths: (sm: 540px, md: 720px, lg: 960px, xl: 1140px, xxl: 1400px);
 $gutter: $grid-gutter-width;
 
 
 // Color Data
 $white: #fff;
 $black: #000;
+$purple: #2A0227;
+$gold: #F9A608;
+$h1-color: #FFEFF6;
+$red: #D2132A;
+$bg-clients: #ffecee;
+$color-clients: #643C5A;
+$color-clients-title: #383030;
+$color-name: #383030;

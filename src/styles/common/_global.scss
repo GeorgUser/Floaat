@@ -1,4 +1,77 @@
-/* stylelint-disable */
+//   ----  SCROLL -------   //
+
+@import "../_mixins/custom-scrollbars";
+@include scrollbars(.5em, $red, $purple);
+
+//   ----  CURSOR -------   //
+
+body, a {
+  cursor: none !important;
+}
+
+.cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+}
+.cursor--small {
+  width: 7px;
+  height: 7px;
+  left: -2.5px;
+  top: -2.5px;
+  border-radius: 50%;
+  z-index: 11000;
+  background: $red;
+}
+.cursor-red {
+  width: 60px;
+  height: 60px;
+  left: -30px;
+  top: -30px;
+  border-radius: 50%;
+  z-index: 11000;
+  background: $red;
+  box-shadow: 0 0 20px $red;
+  &::before {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    content: "open";
+    color: $white;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.cursor-white {
+  width: 20px;
+  height: 20px;
+  left: -10px;
+  bottom: -10px;
+  border-radius: 50%;
+  z-index: 11000;
+  background: $white;
+  box-shadow: 0 0 30px 5px $white;
+}
+
+//   ----  CURSOR END -------   //
+
+//   ----  BG Parallax -------   //
+
+@keyframes parallax-bg {
+  from {
+    transform: translate(0%, 0%);
+  }
+  60% {
+    transform: translate(6%, 6%) rotate(3deg);
+  }
+  to {
+    transform: translate(6%, 0%) rotate(1deg);
+  }
+}
+
+
+
 .page__container {
   @include make-container();
   @include make-container-max-widths();
@@ -8,9 +81,5 @@
   @include make-row();
 }
 
-.title {
-  font-weight: 600;
-  font-size: 42px;
-  text-align: center;
-  margin: 0 auto;
-}
+
+

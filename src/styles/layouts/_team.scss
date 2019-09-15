@@ -1,0 +1,44 @@
+.team {
+  padding: 50px 0;
+  background-color: $bg-clients;
+  .header {
+    position: relative;
+    padding: 0;
+  }
+  &__title {
+    font-family: $arch-black;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    color: $color-title;
+    margin-bottom: 40px;
+  }
+  &__slider {
+    .slick-arrow:before {
+      font-family: $arch;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 12px;
+      text-transform: uppercase;
+      color: $black;
+    }
+    .slick-prev {
+      left: -40px;
+      &:before {
+        content: "prev";
+      }
+    }
+    .slick-next {
+      right: -30px;
+      &:before {
+        content: "next";
+      }
+    }
+    img {
+      border-radius: 5px;
+      margin: 0 auto;
+    }
+  }
+}

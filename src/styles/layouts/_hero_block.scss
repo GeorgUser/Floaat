@@ -5,6 +5,9 @@
   perspective: 50px;
   text-align: center;
   overflow: hidden;
+  .page__container {
+    height: 100%;
+  }
   &__title {
     top: calc(50% - 157px);
     z-index: 10;

@@ -58,6 +58,7 @@
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^4.2.1",
     "jquery": "^3.3.1",
-    "lodash": "^4.17.10"
+    "lodash": "^4.17.10",
+    "slick-carousel": "^1.8.1"
   }
 }

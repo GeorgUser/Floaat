@@ -1,4 +1,17 @@
+import './autoload/_slick';
 import './components/preloader';
+
+// ----- SLICK ------ //
+
+$('#slider').slick({
+    infinite: true,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    autoplay: true,
+    prevArrow: '<button type="button" class="slick-prev hover-js red">Prev</button>',
+    nextArrow: '<button type="button" class="slick-next hover-js red">Next</button>'
+});
+
 
 // ----- CURSOR ------ //
 

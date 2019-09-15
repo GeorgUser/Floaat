@@ -70,8 +70,6 @@ body, a {
   }
 }
 
-
-
 .page__container {
   @include make-container();
   @include make-container-max-widths();

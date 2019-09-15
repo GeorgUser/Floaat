@@ -1,7 +1,9 @@
 .clients {
+  padding: 50px 0;
   background-color: $bg-clients;
   .header {
     position: relative;
+    padding: 0;
     &__menu--black {
       a {
         color: $black;
@@ -13,6 +15,7 @@
     }
   }
   &__text {
+    margin-top: 40px;
     &__col {
       @include make-col(3);
     }
@@ -24,7 +27,7 @@
       font-weight: normal;
       font-size: 40px;
       line-height: 40px;
-      color: $color-clients-title;
+      color: $color-title;
     }
     .desc {
       font-family: Archivo;

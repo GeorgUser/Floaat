@@ -1,0 +1,102 @@
+.footer {
+  background-color: $purple;
+  .text_btn {
+    z-index: 2;
+  }
+  &__contact {
+    padding: 25px 0;
+    display: flex;
+    justify-content: center;
+    font-family: $arch;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    text-align: center;
+    color: $white;
+    position: relative;
+    &__hover {
+      background-color: $red;
+      height: 100%;
+      width: 0%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      transition: all 2s;
+    }
+    &:hover {
+      .footer__contact__hover {
+          width: 100%;
+      }
+      span {
+        transform: rotate(45deg) translate(-50%, -50%);
+      }
+    }
+    span {
+      transition: all 1000ms;
+      position: relative;
+      display: inline-block;
+      &:before {
+        content: '';
+        width: 20px;
+        height: 20px;
+        border-top: 4px solid $white;
+        border-right: 4px solid $white;
+        position: absolute;
+        right: -45px;
+        top: 10px;
+      }
+      &:after {
+        content: '';
+        width: 30px;
+        height: 4px;
+        background-color: $white;
+        position: absolute;
+        right: -47.5px;
+        top: 20px;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    &__credits {
+      font-family: $arch;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      color: $white;
+    }
+    &__next_page {
+      position: relative;
+      &:before {
+        content: '';
+        width: 15px;
+        height: 15px;
+        border: 2px solid $red;
+        position: absolute;
+        left: -22px;
+        top: 5px;
+      }
+      &:after {
+        content: '';
+        width: 16px;
+        height: 2px;
+        background-color: $red;
+        position: absolute;
+        left: -22px;
+        top: 12px;
+        transform: rotate(45deg);
+      }
+      a {
+        font-family: Archivo;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 26px;
+        text-transform: uppercase;
+        color: $white;
+      }
+    }
+  }
+}

@@ -6,4 +6,41 @@
     position: relative;
     padding: 0;
   }
+  &__slider-section {
+    padding-top: 50px;
+    text-align: center;
+    text-align: -webkit-center;
+    display: flex;
+    justify-content: space-between;
+    &__body {
+      width: 50%;
+    }
+    &__tabs {
+      .line {
+        display: flex;
+        justify-content: center;
+        .tab {
+          margin: 10px;
+          border-radius: 15px;
+          background-color: $bg-tabs;
+          width: 200px;
+          height: 200px;
+          img {
+            width: 80%;
+          }
+        }
+      }
+    }
+  }
 }
+
+// ----  slider  ---- //
+
+//.slick-list {
+//  width: 50%;
+//}
+//
+//.slick-dots {
+//  width: 50%;
+//  top: 50%;
+//}

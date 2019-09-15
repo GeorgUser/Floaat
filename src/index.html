@@ -9,7 +9,7 @@
     <meta property="og:image" content="path/to/image.jpg">
     <link rel="icon" href="images/mainicon.jpg">
     <link rel="apple-touch-icon" sizes="180x180" href="#">
-    <meta name="theme-color" content="#000">
+    <meta name="theme-color" content="#2A0227">
     <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Archivo:400,700&display=swap&subset=latin-ext"
           rel="stylesheet">
 </head>
@@ -23,18 +23,18 @@
     </div>
 </div>
 
-<div class="cursor cursor--small"></div>
+<div data-atr="open" class="cursor cursor--small"></div>
 
 
-<section id="hero_block" class="hero_block">
+<section id="hero_block" class="hero_block shadow hover-js">
     <div class="page__container">
         <div id="header" class="header">
             <div class="header__logo">
                 <a href="#" class="white hover-js"><h1>floaat</h1></a>
             </div>
             <nav class="header__menu">
-                <a class="red hover-js" href="#">contact us</a>
-                <div class="header__menu__icon red hover-js">
+                <a class="red hover-js" href="#" data-atr="contact">contact us</a>
+                <div class="header__menu__icon red hover-js" data-atr="open">
                     <div class="line"></div>
                     <div class="line"></div>
                 </div>
@@ -66,8 +66,8 @@
                 <a href="#" class="white hover-js"><h1>floaat</h1></a>
             </div>
             <nav class="header__menu header__menu--black">
-                <a class="red hover-js" href="#">contact us</a>
-                <div class="header__menu__icon header__menu__icon--bg red hover-js">
+                <a class="red hover-js" href="#" data-atr="contact">contact us</a>
+                <div class="header__menu__icon header__menu__icon--bg red hover-js" data-atr="open">
                     <div class="line"></div>
                     <div class="line"></div>
                 </div>
@@ -85,37 +85,63 @@
             <div class="clients__gallery__col">
                 <div class="clients__gallery">
                     <div class="clients__gallery__column">
-                        <div
-                                class="table"><img class="img hover-js white" src="./images/client1.jpg" alt="people">
-                            <p>Lara Cliford</p></div>
-                        <div
-                                class="table"><img class="img hover-js white" src="./images/client1.jpg" alt="people">
-                            <p>Lara Cliford</p></div>
-                        <div
-                                class="table"><img class="img hover-js white" src="./images/client1.jpg" alt="people">
-                            <p>Lara Cliford</p></div>
+                        <div class="clients__gallery__column__table">
+                            <div class="img-display hover-js white">
+                                <img src="./images/client2.jpg" alt="people">
+                            </div>
+                            <p>Lara Cliford</p>
+                        </div>
+                        <div class="clients__gallery__column__table">
+                            <div class="img-display hover-js white">
+                                <img src="./images/client5.jpg" alt="people">
+                            </div>
+                            <p>Lara Cliford</p>
+                        </div>
+                        <div class="clients__gallery__column__table">
+                            <div class="img-display hover-js white">
+                                <img src="./images/client6.png" alt="people">
+                            </div>
+                            <p>Lara Cliford</p>
+                        </div>
                     </div>
                     <div class="clients__gallery__column">
-                        <div
-                                class="table"><img class="img hover-js white" src="./images/client1.jpg" alt="people">
+                        <div class="clients__gallery__column__table">
+                            <div class="img-display hover-js white">
+                                <img src="./images/client6.png" alt="people">
+                            </div>
                             <p>Lara Cliford</p></div>
-                        <div
-                                class="table"><img class="img hover-js white" src="./images/client1.jpg" alt="people">
-                            <p>Lara Cliford</p></div>
-                        <div
-                                class="table"><img class="img hover-js white" src="./images/client1.jpg" alt="people">
-                            <p>Lara Cliford</p></div>
+                        <div class="clients__gallery__column__table">
+                            <div class="img-display hover-js white">
+                                <img src="./images/client4.jpg" alt="people">
+                            </div>
+                            <p>Lara Cliford</p>
+                        </div>
+                        <div class="clients__gallery__column__table">
+                            <div class="img-display hover-js white">
+                                <img src="./images/client1.jpg" alt="people">
+                            </div>
+                            <p>Lara Cliford</p>
+                        </div>
                     </div>
                     <div class="clients__gallery__column">
-                        <div
-                                class="table"><img class="img hover-js white" src="./images/client1.jpg" alt="people">
-                            <p>Lara Cliford</p></div>
-                        <div
-                                class="table"><img class="img hover-js white" src="./images/client1.jpg" alt="people">
-                            <p>Lara Cliford</p></div>
-                        <div
-                                class="table"><img class="img hover-js white" src="./images/client1.jpg" alt="people">
-                            <p>Lara Cliford</p></div>
+                        <div class="clients__gallery__column__table">
+                            <div class="img-display hover-js white">
+                                <img src="./images/client1.jpg" alt="people">
+                            </div>
+                            <p>Lara Cliford</p>
+                        </div>
+                        <div class="clients__gallery__column__table">
+                            <div class="img-display hover-js white">
+                                <img src="./images/client3.jpg" alt="people">
+                            </div>
+                            <p>Lara Cliford</p>
+                        </div>
+                        <div class="clients__gallery__column__table">
+                            <div class="img-display hover-js white">
+                                <img src="./images/client2.jpg" alt="people">
+                            </div>
+                            <p>Lara Cliford</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -130,48 +156,36 @@
                 <a href="#" class="white hover-js"><h1>floaat</h1></a>
             </div>
             <nav class="header__menu header__menu">
-                <a class="red hover-js" href="#">contact us</a>
-                <div class="header__menu__icon header__menu__icon red hover-js">
+                <a class="red hover-js" href="#" data-atr="contact">contact us</a>
+                <div class="header__menu__icon header__menu__icon red hover-js" data-atr="open">
                     <div class="line"></div>
                     <div class="line"></div>
                 </div>
             </nav>
         </div>
-    </div>
-    <!--<div class="we_do__table-tabs">
-        <div class="page__row">
-            <div class="we_do__table-tabs__tab__col">
-                <div class="we_do__table-tabs__tab">
-
-                </div>
+        <div class="we_do__slider-section">
+            <div class="we_do__slider-section__tabs">
+                <ul class="line">
+                    <li class="tab"><img src="images/gear_big.png" alt="gear"></li>
+                    <li class="tab"><img src="images/star.png" alt="star"></li>
+                    <li class="tab"><img src="images/graphik_big.png" alt="graphik"></li>
+                </ul>
+                <ul class="line">
+                    <li class="tab"><img src="images/basica.png" alt="basic"></li>
+                    <li class="tab"><img src="images/lupa_big.png" alt="lupa"></li>
+                    <li class="tab"><img src="images/headphone.png" alt="headphone"></li>
+                </ul>
             </div>
-            <div class="we_do__table-tabs__tab__col">
-                <div class="we_do__table-tabs__tab">
-
-                </div>
-            </div>
-            <div class="we_do__table-tabs__tab__col">
-                <div class="we_do__table-tabs__tab">
-
-                </div>
-            </div>
-            <div class="we_do__table-tabs__tab__col">
-                <div class="we_do__table-tabs__tab">
-
-                </div>
-            </div>
-            <div class="we_do__table-tabs__tab__col">
-                <div class="we_do__table-tabs__tab">
-
-                </div>
-            </div>
-            <div class="we_do__table-tabs__tab__col">
-                <div class="we_do__table-tabs__tab">
-
-                </div>
+            <div class="we_do__slider-section__body" id="slider1">
+                <div><img src="images/gear_big.png" alt="gear"></div>
+                <div><img src="images/star.png" alt="star"></div>
+                <div><img src="images/graphik_big.png" alt="graphik"></div>
+                <div><img src="images/basica.png" alt="basic"></div>
+                <div><img src="images/lupa_big.png" alt="lupa"></div>
+                <div><img src="images/headphone.png" alt="headphone"></div>
             </div>
         </div>
-    </div>-->
+    </div>
 </section>
 
 <section class="team">
@@ -181,8 +195,8 @@
                 <a href="#" class="white hover-js"><h1>floaat</h1></a>
             </div>
             <nav class="header__menu header__menu--black">
-                <a class="red hover-js" href="#">contact us</a>
-                <div class="header__menu__icon header__menu__icon--bg red hover-js">
+                <a class="red hover-js" href="#" data-atr="contact">contact us</a>
+                <div class="header__menu__icon header__menu__icon--bg red hover-js" data-atr="open">
                     <div class="line"></div>
                     <div class="line"></div>
                 </div>
@@ -191,13 +205,58 @@
         <div class="team__title">
             <h2>our team</h2>
         </div>
-        <div class="team__slider" id="slider">
-            <div><img src="images/photo1.jpg" alt="photo"></div>
-            <div><img src="images/photo2.jpg" alt="photo"></div>
-            <div><img src="images/photo3.jpg" alt="photo"></div>
-            <div><img src="images/photo4.jpg" alt="photo"></div>
-            <div><img src="images/photo2.jpg" alt="photo"></div>
+        <div class="team__slider" id="slider2">
+            <div class="team__slider__item">
+                <div class="overlay hover-js white">
+                    <img src="images/photo1.jpg" alt="photo">
+                    <div class="hover">
+                        <p class="name">Thomas French</p>
+                        <p class="profession">Video Maker</p>
+                    </div>
+                </div>
+            </div>
+            <div class="team__slider__item">
+                <div class="overlay hover-js white">
+                    <img src="images/photo2.jpg" alt="photo">
+                    <div class="hover">
+                        <p class="name">Thomas French</p>
+                        <p class="profession">Video Maker</p>
+                    </div>
+                </div>
+            </div>
+            <div class="team__slider__item">
+                <div class="overlay hover-js white">
+                    <img src="images/photo3.jpg" alt="photo">
+                    <div class="hover">
+                        <p class="name">Thomas French</p>
+                        <p class="profession">Video Maker</p>
+                    </div>
+                </div>
+            </div>
+            <div class="team__slider__item">
+                <div class="overlay hover-js white">
+                    <img src="images/photo4.jpg" alt="photo">
+                    <div class="hover">
+                        <p class="name">Thomas French</p>
+                        <p class="profession">Video Maker</p>
+                    </div>
+                </div>
+            </div>
+            <div class="team__slider__item">
+                <div class="overlay hover-js white">
+                    <img src="images/photo2.jpg" alt="photo">
+                    <div class="hover">
+                        <p class="name">Thomas French</p>
+                        <p class="profession">Video Maker</p>
+                    </div>
+                </div>
+            </div>
         </div>
+        <ul class="bg-parallax">
+            <li class="bg-parallax__item item1"><img src="images/bg3-item1.png" alt=""></li>
+            <li class="bg-parallax__item item2"><img src="images/bg2-item1.png" alt=""></li>
+            <li class="bg-parallax__item item3"><img src="images/bg3-item2.png" alt=""></li>
+        </ul>
     </div>
 </section>
 

@@ -7,9 +7,11 @@
   overflow: hidden;
   .page__container {
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   &__title {
-    top: calc(50% - 157px);
     z-index: 10;
     text-transform: uppercase;
     position: relative;
@@ -19,7 +21,7 @@
       font-style: normal;
       font-weight: normal;
       font-size: 170px;
-      line-height: 185px;
+      line-height: 130px;
       text-align: center;
       color: $h1-color;
     }
@@ -28,7 +30,6 @@
       font-style: normal;
       font-weight: bold;
       font-size: 12px;
-      line-height: 13px;
       color: $gold;
     }
     img {

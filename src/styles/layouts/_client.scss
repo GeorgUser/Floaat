@@ -58,10 +58,18 @@
     &__column {
       display: flex;
       flex-direction: column;
-      .table {
+      &__table {
+        max-width: 197px;
         margin: 25px 15px;
-        .img {
-          border-radius: 5px;
+        .img-display {
+          overflow: hidden;
+          border-radius: 10px;
+          width: 196px;
+          height: 250px;
+          background-color: $bg-clients-gallery;
+          img {
+
+          }
         }
         p {
           margin-top: 15px;

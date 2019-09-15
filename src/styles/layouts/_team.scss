@@ -1,9 +1,35 @@
 .team {
   padding: 50px 0;
   background-color: $bg-clients;
+  position: relative;
   .header {
     position: relative;
     padding: 0;
+  }
+  .bg-parallax {
+
+    img {
+      width: 100%;
+    }
+    &__item {
+      position: absolute;
+    }
+    .item1 {
+      bottom: 0;
+      left: 0;
+      animation: 3s parallax-bg infinite alternate-reverse;
+    }
+    .item2 {
+      z-index: 6;
+      bottom: -11%;
+      right: 10%;
+      animation: 4s parallax-bg infinite alternate;
+    }
+    .item3 {
+      top: 20%;
+      right: 25%;
+      animation: 3s parallax-bg infinite alternate;
+    }
   }
   &__title {
     font-family: $arch-black;
@@ -16,6 +42,47 @@
     margin-bottom: 40px;
   }
   &__slider {
+    &__item {
+      .overlay {
+        position: relative;
+        margin: 0 auto;
+        width: fit-content;
+        img {
+          border-radius: 7px;
+          margin: 0;
+        }
+        .hover {
+          border-radius: 7px;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          background-color: $red;
+          top: 0;
+          left: 0;
+          opacity: 0;
+          transition: all 1s;
+          text-align: center;
+          font-size: 12px;
+          color: $white;
+          font-style: normal;
+          font-weight: normal;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          .name {
+            font-family: $arch-black;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+          }
+          .profession {
+            font-family: $arch;
+          }
+          &:hover {
+            opacity: 0.9;
+          }
+        }
+      }
+    }
     .slick-arrow:before {
       font-family: $arch;
       font-style: normal;
@@ -35,10 +102,6 @@
       &:before {
         content: "next";
       }
-    }
-    img {
-      border-radius: 5px;
-      margin: 0 auto;
     }
   }
 }

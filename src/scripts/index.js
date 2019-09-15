@@ -3,13 +3,26 @@ import './components/preloader';
 
 // ----- SLICK ------ //
 
-$('#slider').slick({
+// ----- we-do ------ //
+$('#slider1').slick({
+    draggable:false,
+    dots: true,
+    fade: true,
+    cssEase: 'linear',
+    arrows: false,
+    string: $('#dots'),
+});
+
+// window.onload = $('#slider1').slick('slickGoTo', 4, false);
+
+// ----- team ------ //
+$('#slider2').slick({
     infinite: true,
     slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
-    prevArrow: '<button type="button" class="slick-prev hover-js red">Prev</button>',
-    nextArrow: '<button type="button" class="slick-next hover-js red">Next</button>'
+    prevArrow: '<button type="button" data-atr="prev" class="slick-prev hover-js red">Prev</button>',
+    nextArrow: '<button type="button" data-atr="next" class="slick-next hover-js red">Next</button>'
 });
 
 
@@ -18,6 +31,9 @@ $('#slider').slick({
 // set the starting position of the cursor outside of the screen
 let clientX = -100;
 let clientY = -100;
+let width = document.documentElement.clientWidth;
+let height = document.documentElement.clientHeight;
+
 const innerCursor = document.querySelector(".cursor--small");
 
 const initCursor = () => {
@@ -40,14 +56,17 @@ const hoverCursor = () => {
 
     function handleMouseEnter() {
         if (this.classList.contains('white')) innerCursor.classList.add('cursor-white');
-        if (this.classList.contains('red')) innerCursor.classList.add('cursor-red');
-        if (this.classList.contains('shadow')) innerCursor.classList.add('cursor-shadow');
+        if (this.classList.contains('red')) {
+            innerCursor.dataset.atr = this.dataset.atr;
+            innerCursor.classList.add('cursor-red');
+        }
+        if (this.classList.contains('shadow')) shadowMouse();
     }
 
     function handleMouseLeave() {
         if (this.classList.contains('white')) innerCursor.classList.remove('cursor-white');
         if (this.classList.contains('red')) innerCursor.classList.remove('cursor-red');
-        if (this.classList.contains('shadow')) innerCursor.classList.remove('cursor-shadow');
+        if (this.classList.contains('shadow')) innerCursor.style.boxShadow = 'none';
     }
 
     document.querySelectorAll(".hover-js").forEach(el => {
@@ -55,7 +74,16 @@ const hoverCursor = () => {
         el.addEventListener("mouseleave", handleMouseLeave);
     });
 
+    function shadowMouse() {
+        document.getElementById('hero_block').addEventListener("mousemove", e => {
+            let sizeShadow = Math.abs((+clientX - (+width/2))+(+clientY - (+height/2)))/2;
+            console.log(sizeShadow);
+            innerCursor.style.boxShadow = `0 0 70px ${380 - sizeShadow}px rgba(86,24,56, 0.4)`;
+        });
+    }
+    requestAnimationFrame(shadowMouse);
 };
+
 hoverCursor();
 
 //--------Title parallax
@@ -74,7 +102,7 @@ hoverCursor();
         updatePosition: function(event) {
             let e = event || window.event;
             this.x = (e.clientX - (this._x)) * 5;
-            this.y = (e.clientY - (this._y / 3.5)) * 5;
+            this.y = (e.clientY - (this._y / 3)) * 5;
         },
         setOrigin: function(e) {
             this._x = e.offsetLeft + Math.floor(e.offsetWidth / 2);
@@ -85,15 +113,11 @@ hoverCursor();
     // Track the mouse position relative to the center of the container.
     mouse.setOrigin(container);
 
-    //----------------------------------------------------
-
     let counter = 0;
     let refreshRate = 10;
     const isTimeToUpdate = function () {
         return counter++ % refreshRate === 0;
     };
-
-    //----------------------------------------------------
 
     const onMouseEnterHandler = (event) => {
         update(event);
@@ -108,8 +132,6 @@ hoverCursor();
             update(event);
         }
     };
-
-    //----------------------------------------------------
 
     const update = (event) => {
         mouse.updatePosition(event);
@@ -127,8 +149,6 @@ hoverCursor();
         inner.style.msTransform = style;
         inner.style.oTransform = style;
     };
-
-    //--------------------------------------------------------
 
     container.onmousemove = onMouseMoveHandler;
     container.onmouseleave = onMouseLeaveHandler;

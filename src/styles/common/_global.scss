@@ -9,6 +9,10 @@ body, a {
   cursor: none !important;
 }
 
+//.cursor-shadow {
+//  box-shadow: 0 0 50px 30px $shadow;
+//}
+
 .cursor {
   position: fixed;
   left: 0;
@@ -32,14 +36,19 @@ body, a {
   border-radius: 50%;
   z-index: 11000;
   background: $red;
-  box-shadow: 0 0 20px $red;
+  box-shadow: 0 0 20px $red!important;
   &::before {
     position: absolute;
     left: 50%;
     top: 50%;
-    content: "open";
+    content: attr(data-atr);
     color: $white;
     transform: translate(-50%, -50%);
+    font-family: $arch;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    text-transform: uppercase;
   }
 }
 
@@ -51,8 +60,9 @@ body, a {
   border-radius: 50%;
   z-index: 11000;
   background: $white;
-  box-shadow: 0 0 30px 5px $white;
+  box-shadow: 0 0 30px 5px $white!important;
 }
+
 
 //   ----  CURSOR END -------   //
 
@@ -63,10 +73,10 @@ body, a {
     transform: translate(0%, 0%);
   }
   60% {
-    transform: translate(6%, 6%) rotate(3deg);
+    transform: translate(7%, 7%) rotate(3deg);
   }
   to {
-    transform: translate(6%, 0%) rotate(1deg);
+    transform: translate(7%, 0%) rotate(1deg);
   }
 }
 

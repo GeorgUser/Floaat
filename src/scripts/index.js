@@ -12,15 +12,30 @@ $('#slider1').slick({
     string: $('#dots'),
 });
 
+// ---- slick move ---- //
+
 document.getElementById('we_do')
     .addEventListener('click', function ({target}) {
-        console.log(target.parentNode.classList.contains('tab'));
+
         if(target.parentNode.classList.contains('tab')){
+            // --- go to slide --- //
             $('#slider1').slick('slickGoTo', target.parentNode.dataset.num, false);
+            // ---- delete class active on tab ---- //
+            setTimeout(function(){
+                if(document.querySelector(".active-tab")) {
+                    document.querySelector(".active-tab")
+                        .classList.remove('active-tab');
+                }
+                target.parentNode.classList.add('active-tab');
+            },100);
+
+                // ---- add class active on tab ----//
+
+
+
         }
 });
 
-// window.onload = $('#slider1').slick('slickGoTo', 4, false);
 
 // ----- team ------ //
 $('#slider2').slick({

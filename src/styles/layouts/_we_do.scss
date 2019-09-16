@@ -37,6 +37,15 @@
               opacity: 1;
             }
           }
+          &:active, &focus {
+            background-color: $red;
+            .default {
+              opacity: 0;
+            }
+            .hover {
+              opacity: 1;
+            }
+          }
           .default {
             transition: 300ms all;
             opacity: 1;
@@ -52,18 +61,16 @@
             top: 10px;
           }
         }
+        .active-tab {
+          background-color: $red;
+          .default {
+            opacity: 0;
+          }
+          .hover {
+            opacity: 1;
+          }
+        }
       }
     }
   }
 }
-
-// ----  slider  ---- //
-
-//.slick-list {
-//  width: 50%;
-//}
-//
-//.slick-dots {
-//  width: 50%;
-//  top: 50%;
-//}

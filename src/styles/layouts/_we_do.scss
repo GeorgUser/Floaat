@@ -2,6 +2,9 @@
   background-color: $purple;
   padding-bottom: 140px;
   padding-top: 50px;
+  @include media-breakpoint-down(md) {
+    padding-bottom: 50px;
+  }
   .header {
     position: relative;
     padding: 0;
@@ -12,10 +15,102 @@
     text-align: -webkit-center;
     display: flex;
     justify-content: space-between;
+    @include media-breakpoint-down(md) {
+      flex-direction: column;
+    }
     &__body {
       width: 50%;
+      @include media-breakpoint-down(md) {
+        flex: 0 0 100%;
+        max-width: 100%;
+        width: 100%;
+      }
+      .slick-slide img {
+        display: block;
+        text-align: center;
+        max-width: 100%;
+        z-index: 2;
+      }
+      .display-slide {
+        position: relative;
+        .bg-parallax {
+          img {
+            width: 100%;
+            z-index: 1;
+          }
+          &__item {
+            position: absolute;
+          }
+          .item1 {
+            bottom: 50%;
+            left: 50%;
+            transition: 1s all;
+            animation: 2.5s parallax-bg infinite alternate;
+          }
+          .item2 {
+            bottom: 50%;
+            right: 50%;
+            transition: 1s all;
+            animation: 3s parallax-bg infinite alternate-reverse;
+          }
+          .item3 {
+            top: 50%;
+            right: 50%;
+            transition: 1s all;
+            animation: 2.5s parallax-bg infinite alternate-reverse;
+          }
+        }
+        .bg-0 {
+          .item1 {
+            bottom: 10%;
+            left: 10%;
+          }
+          .item2 {
+            bottom: 15%;
+            right: 10%;
+          }
+          .item3 {
+            top: 0;
+            right: 20%;
+          }
+        }
+        .text {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%,-50%);
+          text-align: center;
+          .title {
+            font-family: $arch;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 36px;
+            color: $white;
+            @include media-breakpoint-down(sm) {
+              font-size: 24px;
+            }
+          }
+          .sub-title {
+            margin-top: 10px;
+            font-family: $arch-black;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 12px;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+            color: $red;
+          }
+        }
+      }
     }
     &__tabs {
+      flex: 0 0 50%;
+      max-width: 50%;
+      align-self: center;
+      @include media-breakpoint-down(md) {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
       .line {
         display: flex;
         justify-content: center;
@@ -28,6 +123,15 @@
           position: relative;
           transition: 500ms all;
           overflow: hidden;
+          @include media-breakpoint-down(xl) {
+            height: 170px;
+          }
+          @include media-breakpoint-down(lg) {
+            height: 143px;
+          }
+          @include media-breakpoint-down(sm) {
+            height: 68px;
+          }
           &:hover {
             background-color: $red;
             .default {
@@ -47,18 +151,35 @@
             }
           }
           .default {
-            transition: 300ms all;
+            transition: 300ms opacity;
             opacity: 1;
           }
           .hover {
-            transition: 300ms all;
+            transition: 300ms opacity;
             opacity: 0;
+            top: 15px;
+            @include media-breakpoint-down(sm) {
+              top: 5px;
+            }
           }
           img {
-            width: 100%;
+            max-width: 100%;
             position: absolute;
-            left: -14px;
-            top: 10px;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            text-align: center;
+            object-position: center;
+            object-fit: fill;
+            margin: auto;
+            @include media-breakpoint-down(md) {
+              max-height: 100%;
+              text-align: center;
+              vertical-align: middle;
+              display: block;
+              width: auto;
+            }
           }
         }
         .active-tab {

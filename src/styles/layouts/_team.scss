@@ -41,7 +41,17 @@
     margin-bottom: 40px;
   }
   &__slider {
+    @include media-breakpoint-down(xl) {
+      padding: 0 30px;
+    }
     &__item {
+      max-width: 100%;
+      @include media-breakpoint-down(xl) {
+        padding: 0 20px;
+      }
+      @include media-breakpoint-down(md) {
+        padding: 0 15px;
+      }
       .overlay {
         position: relative;
         margin: 0 auto;
@@ -49,6 +59,7 @@
         img {
           border-radius: 7px;
           margin: 0;
+          width: 100%;
         }
         .hover {
           border-radius: 7px;
@@ -91,13 +102,29 @@
       color: $black;
     }
     .slick-prev {
-      left: -40px;
+      left: -30px;
+      z-index: 1;
+      width: 50px;
+      @include media-breakpoint-down(xl) {
+        left: -20px;
+      }
+      @include media-breakpoint-down(md) {
+        left: 0;
+      }
       &:before {
         content: "prev";
       }
     }
     .slick-next {
       right: -30px;
+      z-index: 1;
+      width: 50px;
+      @include media-breakpoint-down(xl) {
+        right: -20px;
+      }
+      @include media-breakpoint-down(md) {
+        right: 0;
+      }
       &:before {
         content: "next";
       }

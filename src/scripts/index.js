@@ -5,7 +5,7 @@ import './components/preloader';
 
 // ----- we-do ------ //
 $('#slider1').slick({
-    draggable:false,
+    draggable: false,
     fade: true,
     cssEase: 'linear',
     arrows: false,
@@ -16,25 +16,28 @@ $('#slider1').slick({
 
 document.getElementById('we_do')
     .addEventListener('click', function ({target}) {
-
-        if(target.parentNode.classList.contains('tab')){
+        if (target.parentNode.classList.contains('tab')) {
             // --- go to slide --- //
-            $('#slider1').slick('slickGoTo', target.parentNode.dataset.num, false);
-            // ---- delete class active on tab ---- //
-            setTimeout(function(){
-                if(document.querySelector(".active-tab")) {
-                    document.querySelector(".active-tab")
-                        .classList.remove('active-tab');
-                }
-                target.parentNode.classList.add('active-tab');
-            },100);
+            $('#slider1')
+                .on('afterChange', function () {
+                    // ---- delete class active on tab ---- //
+                    if (document.querySelector(".active-tab")) {
+                        document.querySelector(".active-tab")
+                            .classList.remove('active-tab');
+                    }
+                    document.querySelector(".bg-0").classList.remove('bg-0');
+                })
+                .slick('slickGoTo', target.parentNode.dataset.num, false)
+                .on('afterChange', function () {
+                    // ---- add class active on tab ----//
+                    target.parentNode.classList.add('active-tab');
 
-                // ---- add class active on tab ----//
-
-
-
+                    document.querySelector(".slick-active")
+                        .childNodes[0].childNodes[0].childNodes[3]
+                        .classList.add('bg-0');
+                });
         }
-});
+    });
 
 
 // ----- team ------ //
@@ -44,7 +47,30 @@ $('#slider2').slick({
     slidesToScroll: 1,
     autoplay: true,
     prevArrow: '<button type="button" data-atr="prev" class="slick-prev hover-js red">Prev</button>',
-    nextArrow: '<button type="button" data-atr="next" class="slick-next hover-js red">Next</button>'
+    nextArrow: '<button type="button" data-atr="next" class="slick-next hover-js red">Next</button>',
+    responsive: [
+        {
+            breakpoint: 1024,
+            settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1,
+            }
+        },
+        {
+            breakpoint: 992,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+            }
+        },
+        {
+            breakpoint: 520,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+            }
+        },
+    ],
 });
 
 
@@ -98,10 +124,11 @@ const hoverCursor = () => {
 
     function shadowMouse() {
         document.getElementById('hero_block').addEventListener("mousemove", e => {
-            let sizeShadow = Math.abs((+clientX - (+width/2))+(+clientY - (+height/2)))/2;
+            let sizeShadow = Math.abs((+clientX - (+width / 2)) + (+clientY - (+height / 2))) / 2;
             innerCursor.style.boxShadow = `0 0 70px ${380 - sizeShadow}px rgba(86,24,56, 0.4)`;
         });
     }
+
     requestAnimationFrame(shadowMouse);
 };
 
@@ -120,12 +147,12 @@ hoverCursor();
         _y: 0,
         x: 0,
         y: 0,
-        updatePosition: function(event) {
+        updatePosition: function (event) {
             let e = event || window.event;
             this.x = (e.clientX - (this._x)) * 5;
             this.y = (e.clientY - (this._y / 3)) * 5;
         },
-        setOrigin: function(e) {
+        setOrigin: function (e) {
             this._x = e.offsetLeft + Math.floor(e.offsetWidth / 2);
             this._y = e.offsetTop + Math.floor(e.offsetHeight / 2);
         },

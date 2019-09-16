@@ -6,11 +6,18 @@ import './components/preloader';
 // ----- we-do ------ //
 $('#slider1').slick({
     draggable:false,
-    dots: true,
     fade: true,
     cssEase: 'linear',
     arrows: false,
     string: $('#dots'),
+});
+
+document.getElementById('we_do')
+    .addEventListener('click', function ({target}) {
+        console.log(target.parentNode.classList.contains('tab'));
+        if(target.parentNode.classList.contains('tab')){
+            $('#slider1').slick('slickGoTo', target.parentNode.dataset.num, false);
+        }
 });
 
 // window.onload = $('#slider1').slick('slickGoTo', 4, false);
@@ -77,7 +84,6 @@ const hoverCursor = () => {
     function shadowMouse() {
         document.getElementById('hero_block').addEventListener("mousemove", e => {
             let sizeShadow = Math.abs((+clientX - (+width/2))+(+clientY - (+height/2)))/2;
-            console.log(sizeShadow);
             innerCursor.style.boxShadow = `0 0 70px ${380 - sizeShadow}px rgba(86,24,56, 0.4)`;
         });
     }

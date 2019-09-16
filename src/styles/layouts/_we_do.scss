@@ -25,8 +25,31 @@
           background-color: $bg-tabs;
           width: 200px;
           height: 200px;
+          position: relative;
+          transition: 500ms all;
+          overflow: hidden;
+          &:hover {
+            background-color: $red;
+            .default {
+              opacity: 0;
+            }
+            .hover {
+              opacity: 1;
+            }
+          }
+          .default {
+            transition: 300ms all;
+            opacity: 1;
+          }
+          .hover {
+            transition: 300ms all;
+            opacity: 0;
+          }
           img {
-            width: 80%;
+            width: 100%;
+            position: absolute;
+            left: -14px;
+            top: 10px;
           }
         }
       }

@@ -16,6 +16,7 @@
     text-transform: uppercase;
     position: relative;
     transition: 1s all;
+    margin-bottom: 120px;
     h1 {
       font-family: $arch-black;
       font-style: normal;
@@ -51,7 +52,6 @@
       }
     }
   }
-
   .bg-parallax {
     img {
       width: 75%;
@@ -116,6 +116,39 @@
       bottom: 20%;
       right: 10%;
       animation: 6s parallax-bg infinite alternate-reverse;
+    }
+  }
+  &__counter_body {
+    z-index: 11;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%,-50%);
+    .text {
+      font-family: $arch;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      color: $color-clients;
+    }
+    .counter {
+      font-family: $arch;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 30px;
+      line-height: 33px;
+      text-transform: uppercase;
+      color: $white;
+    }
+    .viewers {
+      font-family: $arch;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 15px;
+      text-transform: uppercase;
+      color: $white;
+      margin: 0;
     }
   }
 }

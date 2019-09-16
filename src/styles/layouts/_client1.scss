@@ -1,12 +1,15 @@
 .clients {
   padding: 50px 0;
   background-color: $bg-clients;
+  overflow: hidden;
   @include media-breakpoint-down(md) {
     overflow: hidden;
   }
   .header {
-    position: sticky;
     padding: 0;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
     &__menu--black {
       a {
         color: $black;
@@ -18,10 +21,12 @@
     }
   }
   &__text {
+    position: sticky;
+    position: -webkit-sticky;
     margin-top: 40px;
     max-width: 320px;
     position: sticky;
-    top: 85px;
+    top: 40px;
     &__col {
       @include make-col(5);
       @include media-breakpoint-down(md) {
@@ -235,4 +240,26 @@
       animation: 3s parallax-bg infinite alternate;
     }
   }
+}
+
+
+// --- sticky title --- //
+.wrap {
+  display: flex;
+}
+
+.wrap > div {
+  flex: 1;
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  padding: 100px 0;
+}
+
+.wrap > div:nth-child(2) {
+  background: red;
+  height: 200vh;
 }

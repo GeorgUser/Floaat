@@ -9,8 +9,19 @@
     position: relative;
     padding: 0;
   }
+  &__title {
+    margin-top: 60px;
+    p {
+      font-family: $arch-black;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 40px;
+      line-height: 40px;
+      color: $white;
+      text-transform: uppercase;
+    }
+  }
   &__slider-section {
-    padding-top: 50px;
     text-align: center;
     text-align: -webkit-center;
     display: flex;
@@ -78,7 +89,7 @@
           position: absolute;
           left: 50%;
           top: 50%;
-          transform: translate(-50%,-50%);
+          transform: translate(-50%, -50%);
           text-align: center;
           .title {
             font-family: $arch;

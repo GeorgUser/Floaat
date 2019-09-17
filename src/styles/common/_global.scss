@@ -22,6 +22,9 @@ body {
   left: 0;
   top: 0;
   pointer-events: none;
+  @include media-breakpoint-down(lg){
+    display: none;
+  }
 }
 
 .cursor--small {

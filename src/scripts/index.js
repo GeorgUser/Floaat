@@ -9,46 +9,66 @@ import {TweenMax, TweenLite} from "gsap";
 window.onload = function () {
 
     // --- SCROLL ANIMATION --- //
+    if ($(window).width() > 1024) {
+        const controller = new ScrollMagic.Controller({
+            globalSceneOptions: {
+                triggerHook: "onLeave",
+                duration: "100%"
+            }
+        });
+        const controller2 = new ScrollMagic.Controller({
+            globalSceneOptions: {
+                triggerHook: "onEnter",
+                duration: "100%"
+            }
+        });
 
-    const controller = new ScrollMagic.Controller({
-        globalSceneOptions: {
-            triggerHook: "onLeave",
-            duration: "150%"
+
+        const slides = ["section.panel.hero_block", "section.panel.we_do"];
+
+        for (let i = 0; i < slides.length; i++) {
+            const wipeAnimatioSection = new TimelineMax()
+                .fromTo(slides[i], 1, {opacity: 1}, {opacity: 0.3});
+
+            new ScrollMagic.Scene({
+                triggerElement: slides[i]
+            })
+                .setPin(slides[i], {pushFollowers: false})
+                .setTween(wipeAnimatioSection)
+                .addTo(controller);
         }
-    });
 
-
-    const slides = ["section.panel.hero_block"];
-    if ($(window).width() > 1024) {slides.push("section.panel.we_do")}
-
-    for (let i = 0; i < slides.length; i++) {
         const wipeAnimatioSection = new TimelineMax()
-            .fromTo(slides[i], 1, {opacity: 1}, {opacity: 0});
+            .fromTo("section.panel.clients", 1, {opacity: 1}, {opacity: 0});
+
         new ScrollMagic.Scene({
-            triggerElement: slides[i]
+            triggerElement: "section.panel.we_do"
         })
-            .setPin(slides[i], {pushFollowers: false})
+            .setPin("section.panel.clients", {pushFollowers: false})
             .setTween(wipeAnimatioSection)
+            .addTo(controller2);
+
+        const wipeAnimationGallery = new TimelineMax()
+            .fromTo("section.panel.clients .clients__gallery__col", 1, {y: "0%"}, {y: "-60%", ease: Linear.easeNone});
+        new ScrollMagic.Scene({
+            triggerElement: "section.panel.clients",
+        })
+            .setPin("section.panel.clients")
+            .setTween(wipeAnimationGallery)
             .addTo(controller);
-    }
 
-    const wipeAnimation = new TimelineMax()
-        .fromTo("section.panel.clients .clients__gallery__col", 1, {y: "0%"}, {y: "-100%", ease: Linear.easeNone});
-    new ScrollMagic.Scene({
-        triggerElement: "section.panel.clients",
-    })
-        .setPin("section.panel.clients")
-        .setTween(wipeAnimation)
-        .addTo(controller);
-    window.scrollTo(0, 0);
+
+        window.scrollTo(0, 0);
+
+
 // --- COUNTER HERO-SECTION --- ///
-    let date = Date.parse("2019-09-05T07:10:50.784Z");
-    setInterval(function () {
-        let dateNow = new Date().getTime();
-        let counter = dateNow - date;
-        document.getElementById("counter").innerHTML = counter.toString().replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.");
-    }, 40);
-
+        let date = Date.parse("2019-09-05T07:10:50.784Z");
+        setInterval(function () {
+            let dateNow = new Date().getTime();
+            let counter = dateNow - date;
+            document.getElementById("counter").innerHTML = counter.toString().replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1.");
+        }, 40);
+    }
 
 // ----- SLICK WE-DO ------ //
     $("#slider1").slick({
@@ -124,63 +144,69 @@ window.onload = function () {
 // ----- CURSOR ------ //
 
 // set the starting position of the cursor outside of the screen
-    let clientX = -100;
-    let clientY = -100;
-    let width = document.documentElement.clientWidth;
-    let height = document.documentElement.clientHeight;
 
-    const innerCursor = document.querySelector(".cursor--small");
+    if ($(window).width() > 1024) {
+        let clientX = -100;
+        let clientY = -100;
+        let width = document.documentElement.clientWidth;
+        let height = document.documentElement.clientHeight;
 
-    const initCursor = () => {
+        const innerCursor = document.querySelector(".cursor--small");
 
-        document.addEventListener("mousemove", e => {
-            clientX = e.clientX;
-            clientY = e.clientY;
-        });
+        window.onscroll = function() {
+            innerCursor.style.boxShadow = "none"
+        }
 
-        const render = () => {
-            innerCursor.style.transform = `translate(${clientX}px, ${clientY}px)`;
+        const initCursor = () => {
+
+            document.addEventListener("mousemove", e => {
+                clientX = e.clientX;
+                clientY = e.clientY;
+            });
+
+            const render = () => {
+                innerCursor.style.transform = `translate(${clientX}px, ${clientY}px)`;
+                requestAnimationFrame(render);
+            };
+
             requestAnimationFrame(render);
         };
+        initCursor();
 
-        requestAnimationFrame(render);
-    };
-    initCursor();
+        const hoverCursor = () => {
 
-    const hoverCursor = () => {
-
-        function handleMouseEnter() {
-            if (this.classList.contains("white")) innerCursor.classList.add("cursor-white");
-            if (this.classList.contains("red")) {
-                innerCursor.dataset.atr = this.dataset.atr;
-                innerCursor.classList.add("cursor-red");
+            function handleMouseEnter() {
+                if (this.classList.contains("white")) innerCursor.classList.add("cursor-white");
+                if (this.classList.contains("red")) {
+                    innerCursor.dataset.atr = this.dataset.atr;
+                    innerCursor.classList.add("cursor-red");
+                }
+                if (this.classList.contains("shadow")) shadowMouse();
             }
-            if (this.classList.contains("shadow")) shadowMouse();
-        }
 
-        function handleMouseLeave() {
-            if (this.classList.contains("white")) innerCursor.classList.remove("cursor-white");
-            if (this.classList.contains("red")) innerCursor.classList.remove("cursor-red");
-            if (this.classList.contains("shadow")) innerCursor.style.boxShadow = "none";
-        }
+            function handleMouseLeave() {
+                if (this.classList.contains("white")) innerCursor.classList.remove("cursor-white");
+                if (this.classList.contains("red")) innerCursor.classList.remove("cursor-red");
+                if (this.classList.contains("shadow")) innerCursor.style.boxShadow = "none";
+            }
 
-        document.querySelectorAll(".hover-js").forEach(el => {
-            el.addEventListener("mouseenter", handleMouseEnter);
-            el.addEventListener("mouseleave", handleMouseLeave);
-        });
-
-        function shadowMouse() {
-            document.getElementById("hero_block").addEventListener("mousemove", e => {
-                let sizeShadow = Math.abs((+clientX - (+width / 2)) + (+clientY - (+height / 2))) / 2;
-                innerCursor.style.boxShadow = `0 0 70px ${380 - sizeShadow}px rgba(86,24,56, 0.4)`;
+            document.querySelectorAll(".hover-js").forEach(el => {
+                el.addEventListener("mouseenter", handleMouseEnter);
+                el.addEventListener("mouseleave", handleMouseLeave);
             });
-        }
 
-        requestAnimationFrame(shadowMouse);
-    };
+            function shadowMouse() {
+                document.getElementById("hero_block").addEventListener("mousemove", e => {
+                    let sizeShadow = Math.abs((+clientX - (+width / 2)) + (+clientY - (+height / 2))) / 2;
+                    innerCursor.style.boxShadow = `0 0 70px ${380 - sizeShadow}px rgba(86,24,56, 0.4)`;
+                });
+            }
 
-    hoverCursor();
+            requestAnimationFrame(shadowMouse);
+        };
 
+        hoverCursor();
+    }
 // ---- TITLE PARALLAX ---- //
 
     if ($(window).width() > 1024) {

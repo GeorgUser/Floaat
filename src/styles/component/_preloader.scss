@@ -23,6 +23,11 @@
       transform-origin: bottom center;
       opacity: 1;
       text-align: center;
+      @include media-breakpoint-down(sm) {
+        img {
+          width: 45%;
+        }
+      }
     }
     span {
       font-family: $arch-black;
@@ -33,6 +38,9 @@
       text-align: center;
       text-transform: uppercase;
       color: rgba(100, 60, 90, 0.2);
+      @include media-breakpoint-down(sm) {
+        font-size: 145px;
+      }
     }
     p {
       color: $gold;

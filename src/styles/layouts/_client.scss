@@ -1,11 +1,13 @@
 .clients {
-  padding: 50px 0;
+  max-height: 100%;
+  height: 100vh;
+  padding: 50px 0 0 0;
   background-color: $bg-clients;
   @include media-breakpoint-down(md) {
     overflow: hidden;
   }
   .header {
-    position: sticky;
+    position: relative;
     padding: 0;
     &__menu--black {
       a {
@@ -20,7 +22,6 @@
   &__text {
     margin-top: 40px;
     max-width: 320px;
-    position: sticky;
     top: 85px;
     &__col {
       @include make-col(5);

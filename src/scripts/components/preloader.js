@@ -16,7 +16,7 @@
         if (counter === 3) counter = 0;
         image_display.innerHTML = imgTag[counter];
         counter++;
-    }, 400);
+    }, 500);
 
     for (let i = 0; i < images_total_count; i++) {
         image_clone = new Image();
@@ -36,7 +36,7 @@
                     preloader.classList.add("done");
                     clearInterval(imgSetInt);
                 }
-            }, 1200)
+            }, 3200)
         }
     }
 })();

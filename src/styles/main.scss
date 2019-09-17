@@ -2,11 +2,9 @@
 @import "component/preloader";
 @import "./autoload/bootstrap";
 @import "./autoload/slick";
-
 // css reset and global
 @import "common/reset";
 @import "common/global";
-
 // main style
 @import "layouts/header";
 @import "layouts/hero_block";

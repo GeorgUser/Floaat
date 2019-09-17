@@ -17,7 +17,7 @@
     &__hover {
       background-color: $red;
       height: 100%;
-      width: 0%;
+      width: 0;
       position: absolute;
       left: 0;
       top: 0;
@@ -25,7 +25,7 @@
     }
     &:hover {
       .footer__contact__hover {
-          width: 100%;
+        width: 100%;
       }
       span {
         transform: rotate(45deg) translate(-50%, -50%);
@@ -68,15 +68,26 @@
       font-size: 14px;
       color: $white;
     }
+    a {
+      text-decoration: none;
+    }
     &__next_page {
       position: relative;
+      font-family: $arch;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 12px;
+      line-height: 26px;
+      text-transform: uppercase;
+      color: $white;
+      padding-left: 20px;
       &:before {
         content: '';
         width: 15px;
         height: 15px;
         border: 2px solid $red;
         position: absolute;
-        left: -22px;
+        left: 0;
         top: 5px;
       }
       &:after {
@@ -85,18 +96,9 @@
         height: 2px;
         background-color: $red;
         position: absolute;
-        left: -22px;
+        left: 0;
         top: 12px;
         transform: rotate(45deg);
-      }
-      a {
-        font-family: $arch;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 12px;
-        line-height: 26px;
-        text-transform: uppercase;
-        color: $white;
       }
     }
   }

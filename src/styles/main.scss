@@ -1,7 +1,8 @@
 @import "common/variables";
 @import "./autoload/bootstrap";
-@import "./autoload/slick";
 @import "component/preloader";
+@import "./autoload/slick";
+@import "./component/menu";
 // css reset and global
 @import "common/reset";
 @import "common/global";

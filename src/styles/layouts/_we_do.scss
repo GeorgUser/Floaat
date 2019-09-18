@@ -1,6 +1,7 @@
 .we_do {
   background-color: $purple;
   padding-bottom: 140px;
+  height: 100vh;
   padding-top: 50px;
   @include media-breakpoint-down(md) {
     padding-bottom: 50px;
@@ -10,7 +11,6 @@
     padding: 0;
   }
   &__title {
-    margin-top: 60px;
     p {
       font-family: $arch-black;
       font-style: normal;

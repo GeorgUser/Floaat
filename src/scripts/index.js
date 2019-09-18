@@ -1,5 +1,5 @@
-import "./autoload/_slick";
 import "./components/preloader";
+import "./autoload/_slick";
 import "imports-loader?define=>false!animation.gsap";
 import ScrollMagic from "ScrollMagic";
 import "scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators";
@@ -7,6 +7,29 @@ import {TweenMax, TweenLite} from "gsap";
 
 
 window.onload = function () {
+
+    // --- MENU --- //
+    (function() {
+        const menuBody = document.getElementById("menu_body");
+        const menuClose = document.getElementById("close_menu");
+        const menu = document.getElementById("menu");
+        document.body.addEventListener("click", function ({target}) {
+            if (target.parentNode.classList.contains("open-menu") || target.classList.contains("open-menu")) {
+                // menuBody.style.width = "100%";
+                menuBody.style.height = "100%";
+                setTimeout(function () {
+                    menu.style.opacity = "1";
+                    menuClose.style.opacity = "1";
+                },1600)
+            }
+            if (target.classList.contains("close-menu")) {
+                menuBody.style= "";
+                menuClose.style = "";
+                menu.style = "";
+            }
+        });
+    })();
+
 
     // --- SCROLL ANIMATION --- //
     if ($(window).width() > 1024) {
@@ -28,7 +51,7 @@ window.onload = function () {
 
         for (let i = 0; i < slides.length; i++) {
             const wipeAnimatioSection = new TimelineMax()
-                .fromTo(slides[i], 1, {opacity: 1}, {opacity: 0.3});
+                .fromTo(slides[i], 1, {opacity: 1}, {opacity: 0});
 
             new ScrollMagic.Scene({
                 triggerElement: slides[i]
@@ -150,12 +173,16 @@ window.onload = function () {
         let clientY = -100;
         let width = document.documentElement.clientWidth;
         let height = document.documentElement.clientHeight;
+        window.onresize = function () {
+            width = document.documentElement.clientWidth;
+            height = document.documentElement.clientHeight;
+        };
 
         const innerCursor = document.querySelector(".cursor--small");
 
-        window.onscroll = function() {
+        window.onscroll = function () {
             innerCursor.style.boxShadow = "none"
-        }
+        };
 
         const initCursor = () => {
 
@@ -198,7 +225,7 @@ window.onload = function () {
             function shadowMouse() {
                 document.getElementById("hero_block").addEventListener("mousemove", e => {
                     let sizeShadow = Math.abs((+clientX - (+width / 2)) + (+clientY - (+height / 2))) / 2;
-                    innerCursor.style.boxShadow = `0 0 70px ${380 - sizeShadow}px rgba(86,24,56, 0.4)`;
+                    innerCursor.style.boxShadow = `0 0 70px ${width / 3.5 - sizeShadow}px rgba(86,24,56, 0.4)`;
                 });
             }
 
@@ -212,8 +239,9 @@ window.onload = function () {
     if ($(window).width() > 1024) {
         (function () {
             // Init
-            const container = document.getElementById("hero_block"),
-                inner = document.getElementById("inner");
+            const container = document.getElementById("hero_block");
+            const inner = document.getElementById("inner");
+
 
             // Mouse
             const mouse = {
@@ -264,6 +292,10 @@ window.onload = function () {
             };
 
             const updateTransformStyle = (x, y) => {
+                if (x < -8) x = -8;
+                if (x > 3) x = 3;
+                if (y > 2.5) y = 2.5;
+                if (y < -2.5) y = -2.5;
                 let style = "rotateX(" + x + "deg) rotateY(" + y + "deg)";
                 inner.style.transform = style;
                 inner.style.webkitTransform = style;
@@ -278,5 +310,7 @@ window.onload = function () {
         })();
     }
 };
+
+
 
 

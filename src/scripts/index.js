@@ -9,23 +9,28 @@ import {TweenMax, TweenLite} from "gsap";
 window.onload = function () {
 
     // --- MENU --- //
-    (function() {
+    (function () {
         const menuBody = document.getElementById("menu_body");
         const menuClose = document.getElementById("close_menu");
         const menu = document.getElementById("menu");
+        const body = document.body;
+
         document.body.addEventListener("click", function ({target}) {
             if (target.parentNode.classList.contains("open-menu") || target.classList.contains("open-menu")) {
-                // menuBody.style.width = "100%";
+                body.style.overflow = "hidden";
                 menuBody.style.height = "100%";
                 setTimeout(function () {
                     menu.style.opacity = "1";
                     menuClose.style.opacity = "1";
-                },1600)
+                }, 1600)
             }
             if (target.classList.contains("close-menu")) {
-                menuBody.style= "";
+                menuBody.style = "";
                 menuClose.style = "";
                 menu.style = "";
+                setTimeout(function () {
+                    body.style.overflow = "auto";
+                }, 1600)
             }
         });
     })();
@@ -72,7 +77,10 @@ window.onload = function () {
             .addTo(controller2);
 
         const wipeAnimationGallery = new TimelineMax()
-            .fromTo("section.panel.clients .clients__gallery__col", 1, {y: "0%"}, {y: "-60%", ease: Linear.easeNone});
+            .fromTo("section.panel.clients .clients__gallery__col", 1, {y: "0%"}, {
+                y: "-60%",
+                ease: Linear.easeNone
+            });
         new ScrollMagic.Scene({
             triggerElement: "section.panel.clients",
         })

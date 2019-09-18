@@ -56,12 +56,15 @@
     text-align: center;
     opacity: 0;
     transition: 1s;
+
     a {
       text-decoration: none;
+
       &:hover {
         color: $bg-clients-gallery;
       }
     }
+
     &__link {
       display: inline-block;
       color: $white;
@@ -106,45 +109,54 @@
         width: 60%;
       }
     }
+
     &__item {
       position: absolute;
     }
+
     .item1 {
       bottom: 15%;
       left: 30%;
       animation: 5s parallax-bg infinite alternate-reverse;
     }
+
     .item2 {
       top: 49%;
       left: -10px;
       animation: 6s parallax-bg infinite alternate;
     }
+
     .item3 {
       bottom: 60%;
       right: 5%;
       animation: 4s parallax-bg infinite alternate-reverse;
     }
+
     .item4 {
       top: 10%;
       right: 40%;
       animation: 6s parallax-bg infinite alternate;
     }
+
     .item5 {
       top: 0;
       right: 5%;
       animation: 6s parallax-bg infinite alternate-reverse;
     }
+
     .item6 {
       bottom: 8%;
       right: 10%;
       animation: 3s parallax-bg infinite alternate;
     }
+
     .item7 {
       top: 2%;
       left: 10%;
       z-index: 10;
       animation: 6s parallax-bg infinite alternate;
     }
+
     .item8 {
       bottom: 0;
       left: 19%;

@@ -3,13 +3,16 @@
   padding-bottom: 140px;
   height: 100vh;
   padding-top: 50px;
+
   @include media-breakpoint-down(md) {
     padding-bottom: 50px;
   }
+
   .header {
     position: relative;
     padding: 0;
   }
+
   &__title {
     p {
       font-family: $arch-black;
@@ -21,49 +24,60 @@
       text-transform: uppercase;
     }
   }
+
   &__slider-section {
     text-align: center;
     text-align: -webkit-center;
     display: flex;
     justify-content: space-between;
+
     @include media-breakpoint-down(md) {
       flex-direction: column;
     }
+
     &__body {
       width: 50%;
+
       @include media-breakpoint-down(md) {
         flex: 0 0 100%;
         max-width: 100%;
         width: 100%;
       }
+
       .slick-slide img {
         display: block;
         text-align: center;
         max-width: 100%;
         z-index: 2;
       }
+
       .display-slide {
         position: relative;
+
         .bg-parallax {
           img {
             width: 100%;
             z-index: 1;
           }
+
           &__item {
             position: absolute;
           }
+
           .item1 {
             bottom: 50%;
             left: 50%;
             transition: 1s all;
             animation: 2.5s parallax-bg infinite alternate;
           }
+
           .item2 {
             bottom: 50%;
             right: 50%;
             transition: 1s all;
             animation: 3s parallax-bg infinite alternate-reverse;
           }
+
           .item3 {
             top: 50%;
             right: 50%;
@@ -71,36 +85,43 @@
             animation: 2.5s parallax-bg infinite alternate-reverse;
           }
         }
+
         .bg-0 {
           .item1 {
             bottom: 10%;
             left: 10%;
           }
+
           .item2 {
             bottom: 15%;
             right: 10%;
           }
+
           .item3 {
             top: 0;
             right: 20%;
           }
         }
+
         .text {
           position: absolute;
           left: 50%;
           top: 50%;
           transform: translate(-50%, -50%);
           text-align: center;
+
           .title {
             font-family: $arch;
             font-style: normal;
             font-weight: bold;
             font-size: 36px;
             color: $white;
+
             @include media-breakpoint-down(sm) {
               font-size: 24px;
             }
           }
+
           .sub-title {
             margin-top: 10px;
             font-family: $arch-black;
@@ -114,17 +135,21 @@
         }
       }
     }
+
     &__tabs {
       flex: 0 0 50%;
       max-width: 50%;
       align-self: center;
+
       @include media-breakpoint-down(md) {
         flex: 0 0 100%;
         max-width: 100%;
       }
+
       .line {
         display: flex;
         justify-content: center;
+
         .tab {
           margin: 10px;
           border-radius: 15px;
@@ -134,45 +159,58 @@
           position: relative;
           transition: 500ms all;
           overflow: hidden;
+
           @include media-breakpoint-down(xl) {
             height: 170px;
           }
+
           @include media-breakpoint-down(lg) {
             height: 143px;
           }
+
           @include media-breakpoint-down(sm) {
             height: 68px;
           }
+
           &:hover {
             background-color: $red;
+
             .default {
               opacity: 0;
             }
+
             .hover {
               opacity: 1;
             }
           }
+
           &:active, &focus {
             background-color: $red;
+
             .default {
               opacity: 0;
             }
+
             .hover {
               opacity: 1;
             }
           }
+
           .default {
             transition: 300ms opacity;
             opacity: 1;
           }
+
           .hover {
             transition: 300ms opacity;
             opacity: 0;
             top: 15px;
+
             @include media-breakpoint-down(sm) {
               top: 5px;
             }
           }
+
           img {
             max-width: 100%;
             position: absolute;
@@ -184,6 +222,7 @@
             object-position: center;
             object-fit: fill;
             margin: auto;
+
             @include media-breakpoint-down(md) {
               max-height: 100%;
               text-align: center;
@@ -193,11 +232,14 @@
             }
           }
         }
+
         .active-tab {
           background-color: $red;
+
           .default {
             opacity: 0;
           }
+
           .hover {
             opacity: 1;
           }

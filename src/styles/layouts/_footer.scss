@@ -1,8 +1,10 @@
 .footer {
   background-color: $purple;
+
   .text_btn {
     z-index: 2;
   }
+
   &__contact {
     padding: 25px 0;
     display: flex;
@@ -14,6 +16,7 @@
     text-align: center;
     color: $white;
     position: relative;
+
     &__hover {
       background-color: $red;
       height: 100%;
@@ -23,18 +26,22 @@
       top: 0;
       transition: all 2s;
     }
+
     &:hover {
       .footer__contact__hover {
         width: 100%;
       }
+
       span {
         transform: rotate(45deg) translate(-50%, -50%);
       }
     }
+
     span {
       transition: all 1000ms;
       position: relative;
       display: inline-block;
+
       &:before {
         content: '';
         width: 20px;
@@ -57,10 +64,12 @@
       }
     }
   }
+
   &__bottom {
     padding-top: 10px;
     display: flex;
     justify-content: space-between;
+
     &__credits {
       font-family: $arch;
       font-style: normal;
@@ -68,9 +77,11 @@
       font-size: 14px;
       color: $white;
     }
+
     a {
       text-decoration: none;
     }
+
     &__next_page {
       position: relative;
       font-family: $arch;
@@ -81,6 +92,7 @@
       text-transform: uppercase;
       color: $white;
       padding-left: 20px;
+
       &:before {
         content: '';
         width: 15px;
@@ -90,6 +102,7 @@
         left: 0;
         top: 5px;
       }
+
       &:after {
         content: '';
         width: 16px;

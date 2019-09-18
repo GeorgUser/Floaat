@@ -9,11 +9,13 @@
   transition: 1s all;
   opacity: 1;
   visibility: visible;
+
   .preloader {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
     .image {
       width: 100%;
       position: fixed;
@@ -23,12 +25,14 @@
       transform-origin: bottom center;
       opacity: 1;
       text-align: center;
+
       @include media-breakpoint-down(sm) {
         img {
           width: 45%;
         }
       }
     }
+
     span {
       font-family: $arch-black;
       font-style: normal;
@@ -38,16 +42,19 @@
       text-align: center;
       text-transform: uppercase;
       color: rgba(100, 60, 90, 0.2);
+
       @include media-breakpoint-down(sm) {
         font-size: 145px;
       }
     }
+
     p {
       color: $gold;
       text-align: center;
       text-transform: uppercase;
     }
   }
+
   &.done {
     opacity: 0;
     visibility: hidden;
